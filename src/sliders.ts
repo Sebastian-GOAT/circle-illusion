@@ -21,7 +21,7 @@ export const count = new Slider({
 count.onChange(newCount => {
 
     for (const ball of balls)
-        engine.removeSprite(ball.sprite);
+        engine.removeSprite(ball);
 
     balls.length = 0;
 
@@ -33,15 +33,12 @@ count.onChange(newCount => {
         const x = (SIZE / 2 - radius) * TSCMath.sin(angle) * TSCMath.cos(angle + STATE.time);
         const y = (SIZE / 2 - radius) * TSCMath.cos(angle) * TSCMath.cos(angle + STATE.time);
 
-        balls.push({
-            sprite: new Circle({
-                x, y,
-                color: 'red',
-                outlineWidth: 1,
-                radius,
-                dir: angle
-            }),
-            offset: angle
-        });
+        balls.push(new Circle({
+            x, y,
+            color: 'red',
+            outlineWidth: 1,
+            radius,
+            dir: angle
+        }));
     }
 });

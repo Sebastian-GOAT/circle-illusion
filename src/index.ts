@@ -18,11 +18,11 @@ engine.setLoop('main', () => {
     const dt = engine.getDeltaTime();
     STATE.time = (STATE.time + 120 * SLIDERS.speed.value * dt) % 360;
     
-    for (const { sprite: ball, offset } of balls) {
+    for (const ball of balls) {
         
         ball.goTo(
-            (SIZE / 2 - ball.radius) * TSCMath.sin(ball.dir) * TSCMath.cos(offset + STATE.time),
-            (SIZE / 2 - ball.radius) * TSCMath.cos(ball.dir) * TSCMath.cos(offset + STATE.time)
+            (SIZE / 2 - ball.radius) * TSCMath.sin(ball.dir) * TSCMath.cos(ball.dir + STATE.time),
+            (SIZE / 2 - ball.radius) * TSCMath.cos(ball.dir) * TSCMath.cos(ball.dir + STATE.time)
         );
     }
 });

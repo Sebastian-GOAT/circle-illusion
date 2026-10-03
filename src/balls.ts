@@ -1,5 +1,5 @@
-import { Circle } from 'tscratch';
+import type { Circle } from 'tscratch';
 
-const balls: { sprite: Circle; offset: number; }[] = [];
+const balls: Circle[] = [];
 
 export default balls;
